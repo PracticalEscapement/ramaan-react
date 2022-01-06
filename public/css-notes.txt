@@ -1,0 +1,6 @@
+Notes on css classes using tailwind and daisyUI
+
+-Navbar componets from daisyUI
+  -To make the navbar fixed, use "fixed"
+  -To ensure the navbar spans the entire page, "left-0 right-0"
+  
