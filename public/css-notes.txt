@@ -3,4 +3,11 @@ Notes on css classes using tailwind and daisyUI
 -Navbar componets from daisyUI
   -To make the navbar fixed, use "fixed"
   -To ensure the navbar spans the entire page, "left-0 right-0"
-  
+
+
+-CSS Grids
+  item1 { grid-area: 1/1/2/4; }
+    grid-area: horizontal line to start at 
+              / vertical line to start at 
+              / horizontal line to end at 
+              / vertical line to end at

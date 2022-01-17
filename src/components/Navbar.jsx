@@ -1,8 +1,22 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 function Navbar() {
+  
+
   return (
-    <h1>Navbar</h1>
+    <div>
+      <ul className='navbar-elements'>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/posts'>Posts</Link>
+        </li>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+      </ul>
+    </div>
   )
 }
 
