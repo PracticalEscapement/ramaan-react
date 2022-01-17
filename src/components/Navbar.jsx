@@ -1,22 +1,47 @@
-import { Link } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 function Navbar() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const pathMatchRoute = (route) => {
+    if (route === location.pathname) {
+      return true
+    }
+  }
+
   return (
-    <nav className='navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box'>
-      <div className='container mx-auto'>
-        <div>
-          RAMAAN
-        </div>
-        <div className='flex-none px-2 mx-2'>
-          <Link to='/' className='btn btn-ghost btn-sm rounded-btn'>
-            Home
-          </Link>
-          <Link to='/posts' className='btn btn-ghost btn-sm rounded-btn'>
-            Posts
-          </Link>
-        </div>
-      </div>
-    </nav>
+    <header className='navbar'>
+      <nav className='navbarNav'>
+        <ul className='navbarListItems'>
+          <li className='logo'>RAMAAN</li>
+          <li className='navbarListItem' onClick={() => navigate('/')}>
+            <h3 className={
+              pathMatchRoute('/') ? 'navbarListItemNameActive' : 'navbarListItemName'
+            }
+            >
+              Home
+            </h3>
+          </li>
+          <li className='navbarListItem' onClick={() => navigate('/posts')}>
+            <h3 className={
+              pathMatchRoute('/posts') ? 'navbarListItemNameActive' : 'navbarListItemName'
+            }
+            >
+              Posts
+            </h3>
+          </li>
+          <li className='navbarListItem' onClick={() => navigate('/about')}>
+            <h3 className={
+              pathMatchRoute('/about') ? 'navbarListItemNameActive' : 'navbarListItemName'
+            }
+            >
+              About
+            </h3>
+          </li>
+        </ul>
+      </nav>
+    </header>
   )
 }
 
