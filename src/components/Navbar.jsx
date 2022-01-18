@@ -12,35 +12,34 @@ function Navbar() {
 
   return (
     <header className='navbar'>
-      <nav className='navbarNav'>
-        <ul className='navbarListItems'>
-          <li className='logo'>RAMAAN</li>
-          <li className='navbarListItem' onClick={() => navigate('/')}>
-            <h3 className={
-              pathMatchRoute('/') ? 'navbarListItemNameActive' : 'navbarListItemName'
-            }
+        <ul className='navbarLeft'>
+          <li className='navLeftHomeLink' onClick={() => navigate('/')}>
+            <p className={
+              pathMatchRoute('/') ? 'navLeftHomeLinkActive' : 'navLeftHomeLink'
+              }
             >
               Home
-            </h3>
+            </p>
           </li>
-          <li className='navbarListItem' onClick={() => navigate('/posts')}>
-            <h3 className={
-              pathMatchRoute('/posts') ? 'navbarListItemNameActive' : 'navbarListItemName'
-            }
+          <li className='navLeftPostsLink' onClick={() => navigate('/posts')}>
+          <p className={
+              pathMatchRoute('/posts') ? 'navLeftPostsLinkActive' : 'navLeftPostsLink'
+              }
             >
               Posts
-            </h3>
+            </p>
           </li>
-          <li className='navbarListItem' onClick={() => navigate('/about')}>
-            <h3 className={
-              pathMatchRoute('/about') ? 'navbarListItemNameActive' : 'navbarListItemName'
-            }
+          <li className='navLeftAboutLink' onClick={() => navigate('/about')}>
+          <p className={
+              pathMatchRoute('/about') ? 'navLeftAboutLinkActive' : 'navLeftAboutLink'
+              }
             >
               About
-            </h3>
+            </p>
           </li>
         </ul>
-      </nav>
+      <div className='logo'>RAMAAN</div>
+      <div className='navbarRight'>Sign In</div>
     </header>
   )
 }
