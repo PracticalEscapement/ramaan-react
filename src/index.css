@@ -10,9 +10,20 @@ nav {
   align-items: center;
 }
 
+.card {
+  list-style-type: none;
+  background-color: #fff;
+  color: #333;
+  border-radius: 15px;
+  padding: 40px 50px;
+  margin: 20px 40px;
+  position: relative;
+  box-shadow: 7px 7px rgb(155, 153, 153);
+}
+
 .navbar {
   background: rgb(163, 29, 8);
-  height: 12vh;
+  height: 10vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: 
@@ -80,30 +91,60 @@ nav {
   cursor: pointer;
 }
 
-/* Nav left active*/
+/* Nav left active/hover */
 
+.navLeftHomeLink:hover,
 .navLeftHomeLinkActive {
   color: black;
 }
 
+.navLeftPostsLink:hover,
 .navLeftPostsLinkActive {
   color: black;
 }
 
+.navLeftAboutLink:hover,
 .navLeftAboutLinkActive {
   color: black;
 }
 
-/* Left Nav link Hover */
 
-.navLeftHomeLink:hover {
-  color: black;
-}
-.navLeftPostsLink:hover {
-  color: black;
-}
-.navLeftAboutLink:hover {
-  color: black;
+/* Posts Page */
+
+/* Posts page sidebar */
+
+.postsMainContainer {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: .20fr 1fr;
 }
 
+.postsSidebar {
+  background-color: antiquewhite;
+  display: grid;
+  margin: 10px;
+  padding: 10px;
+}
 
+.postsSidebarLinks {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 50px);
+}
+
+.postsSidebarLink {
+  list-style-type: none;
+  justify-self: center;
+  align-self: center;
+}
+
+/* Posts page review feed */
+
+.postsFeed {
+  background-color: antiquewhite;
+  margin: 10px;
+  padding: 10px;
+}
+
+.reviews {
+  display: grid;
+}
