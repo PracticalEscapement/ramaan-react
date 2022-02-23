@@ -9,7 +9,7 @@ nav {
   justify-items: center;
   align-items: center;
 }
-
+.postCard,
 .card {
   list-style-type: none;
   background-color: #fff;
@@ -22,9 +22,10 @@ nav {
 }
 
 .navbar {
-  background: rgb(163, 29, 8);
-  height: 10vh;
   display: grid;
+  margin-bottom: 10px;
+  background-color: rgb(163, 29, 8);
+  grid-template-rows: 50px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: 
     "nav1 nav2 nav3";
@@ -124,10 +125,10 @@ nav {
   display: grid;
   margin: 10px;
   padding: 10px;
+  grid-template-rows: repeat(auto-fill, 50px);
 }
 
 .postsSidebarLinks {
-  display: grid;
   grid-template-rows: repeat(auto-fill, 50px);
 }
 
@@ -139,12 +140,46 @@ nav {
 
 /* Posts page review feed */
 
-.postsFeed {
+.postsFeedContainer {
   background-color: antiquewhite;
   margin: 10px;
   padding: 10px;
 }
 
-.reviews {
+.postsFeed {
+  margin: 5px;
+  padding: 5px;
   display: grid;
+  grid-template-rows: repeat(auto-fill, 200px);
+}
+
+.postCard {
+  display: grid;
+  grid-template-columns: .33fr 1fr;
+  grid-template-rows: 1fr .50fr;
+  grid-template-areas: 
+  "img review"
+  "img footer";
+}
+
+.postCardImage {
+  justify-items: center;
+  color: blue;
+  background-color: black;
+  height: 200px;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  grid-area: img;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.postCardReview {
+  justify-self: center;
+  background-color: cadetblue;
+  font-size: medium;
+  grid-area: review;
 }

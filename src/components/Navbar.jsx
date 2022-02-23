@@ -6,7 +6,7 @@ function Navbar() {
 
   const pathMatchRoute = (route) => {
     if (route === location.pathname) {
-      return true
+      return true;
     }
   }
 
@@ -41,7 +41,7 @@ function Navbar() {
       <div className='logo'>RAMAAN</div>
       <div className='navbarRight'>Sign In</div>
     </header>
-  )
+  );
 }
 
 export default Navbar
