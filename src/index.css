@@ -9,11 +9,23 @@ nav {
   justify-items: center;
   align-items: center;
 }
+.postCard,
+.card {
+  list-style-type: none;
+  background-color: #fff;
+  color: #333;
+  border-radius: 15px;
+  padding: 40px 50px;
+  margin: 20px 40px;
+  position: relative;
+  box-shadow: 7px 7px rgb(155, 153, 153);
+}
 
 .navbar {
-  background: rgb(163, 29, 8);
-  height: 12vh;
   display: grid;
+  margin-bottom: 10px;
+  background-color: rgb(163, 29, 8);
+  grid-template-rows: 50px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: 
     "nav1 nav2 nav3";
@@ -80,30 +92,94 @@ nav {
   cursor: pointer;
 }
 
-/* Nav left active*/
+/* Nav left active/hover */
 
+.navLeftHomeLink:hover,
 .navLeftHomeLinkActive {
   color: black;
 }
 
+.navLeftPostsLink:hover,
 .navLeftPostsLinkActive {
   color: black;
 }
 
+.navLeftAboutLink:hover,
 .navLeftAboutLinkActive {
   color: black;
 }
 
-/* Left Nav link Hover */
 
-.navLeftHomeLink:hover {
-  color: black;
-}
-.navLeftPostsLink:hover {
-  color: black;
-}
-.navLeftAboutLink:hover {
-  color: black;
+/* Posts Page */
+
+/* Posts page sidebar */
+
+.postsMainContainer {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: .20fr 1fr;
 }
 
+.postsSidebar {
+  background-color: antiquewhite;
+  display: grid;
+  margin: 10px;
+  padding: 10px;
+  grid-template-rows: repeat(auto-fill, 50px);
+}
 
+.postsSidebarLinks {
+  grid-template-rows: repeat(auto-fill, 50px);
+}
+
+.postsSidebarLink {
+  list-style-type: none;
+  justify-self: center;
+  align-self: center;
+}
+
+/* Posts page review feed */
+
+.postsFeedContainer {
+  background-color: antiquewhite;
+  margin: 10px;
+  padding: 10px;
+}
+
+.postsFeed {
+  margin: 5px;
+  padding: 5px;
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 200px);
+}
+
+.postCard {
+  display: grid;
+  grid-template-columns: .33fr 1fr;
+  grid-template-rows: 1fr .50fr;
+  grid-template-areas: 
+  "img review"
+  "img footer";
+}
+
+.postCardImage {
+  justify-items: center;
+  color: blue;
+  background-color: black;
+  height: 200px;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  grid-area: img;
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.postCardReview {
+  justify-self: center;
+  background-color: cadetblue;
+  font-size: medium;
+  grid-area: review;
+}
