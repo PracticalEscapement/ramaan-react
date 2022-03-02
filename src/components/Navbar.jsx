@@ -1,4 +1,5 @@
 import { useNavigate, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function Navbar() {
   const navigate = useNavigate()
@@ -38,8 +39,8 @@ function Navbar() {
             </p>
           </li>
         </ul>
-      <div className='logo'>RAMAAN</div>
-      <div className='navbarRight'>Sign In</div>
+      <Link to='/' className='logo'>RAMAAN</Link>
+      <Link to='/sign-in' className='navbarRight'>Sign In</Link>
     </header>
   );
 }

@@ -3,7 +3,7 @@ import RamaanContext from '../context/RamaanContext'
 import { getPosts } from '../context/RamaanActions.js'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import Post from './Post'
+
 
 function Posts() {
   const { posts, loading, dispatch } = useContext(RamaanContext)
@@ -25,8 +25,8 @@ function Posts() {
     <div className='postsMainContainer'>
         <ul className='postsSidebar'>
             {posts.map((post) => (
-              <li className='postsSidebarLink'>
-                <Link to={`/post/${post.id}`}>
+              <li key={post.id} className='postsSidebarLink'>
+                <Link to={`/post/${post.id}`} className='postLink'>
                   {post.title}
                 </Link>
               </li>
@@ -34,16 +34,17 @@ function Posts() {
         </ul>
       <div className='postsFeedContainer'>
         <ul className='postFeed'>
-            <li className='postCard'>
-              <div className='postCardImage'>
-                <div className='postCardReview'>this better work</div>
+          {posts.map((post) => (
+            <li key={post.id} className='postCard'>
+              <div className='postCardImageContainer'>
+                <img src={post.image_url} alt="Restaurant Image" className='postCardImage' />
               </div>
-              <div className='postCardReview'>hello</div>
+                <Link to={`/post/${post.id}`} className='postCardHeadline'>
+                  {post.title}
+                </Link>
+                <a href='https://www.google.com/' className='postCardFooter' >Find Me On Google</a>
             </li>
-            <li className='postCard'>
-              <div className='postCardImage'>by</div>
-              <div className='postCardReview'>goodbye</div>
-            </li>
+          ))}
         </ul>
       </div>
     </div>

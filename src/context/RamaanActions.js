@@ -7,7 +7,7 @@ const ramaan = axios.create({
 })
 
 export const getPosts = async () => {
-  const response = await ramaan.get('posts.json')
+  const response = await ramaan.get('/posts.json')
   return response.data.posts
 }
 

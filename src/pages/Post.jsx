@@ -7,7 +7,7 @@ import { getPost } from '../context/RamaanActions.js'
 function Post() {
   const { post, loading, dispatch} = useContext(RamaanContext)
 
-  const {title, review} = post
+  const {title, review, image_url} = post
 
   const params = useParams()
 
@@ -22,10 +22,15 @@ function Post() {
   }, [dispatch])
 
   return (
-    <>
-      <div>{title}</div>
-      <div>{review}</div>
-    </>
+    <div className='postShowMainContainer'>
+      <div>
+        <div className='postCard'>{title}</div>
+        <div className='postCard'>{review}</div>
+        <div className='postCardImageContainer'>
+          <img src={image_url} alt="Restaurant Image" className='postCardImage' />
+        </div>
+      </div>
+    </div>
   )
 }
 
