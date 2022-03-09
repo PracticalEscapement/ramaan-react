@@ -3,7 +3,7 @@ import ramaanReducer from './RamaanReducer'
 
 const RamaanContext = createContext()
 
-export const RamaanProvider = ({children}) => {
+export const RamaanProvider = ({ children }) => {
   const initialState = {
     posts: [],
     post: {},
