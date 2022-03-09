@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Posts from './pages/Posts'
 import Post from './pages/Post'
 import About from './pages/About'
+import Restaurants from './components/Restaurants'
 import { RamaanProvider } from './context/RamaanContext'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
@@ -17,6 +18,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/posts' element={<Posts />} />
+              <Route path='/restaurants' element={<Restaurants />} />
               <Route path='/post/:id' element={<Post />} />
               <Route path='/about' element={<About />} />
               <Route path='/sign-in' element={<SignIn />} />

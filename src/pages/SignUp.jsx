@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
 
@@ -10,6 +10,8 @@ function SignUp() {
     password: '',
   })
   const { name, email, password } = formData
+
+  const navigate = useNavigate()
   
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -74,7 +76,7 @@ function SignUp() {
         <Link to='/sign-in' className='registerLink'>
           Sign In Instead
         </Link>
-        
+
       </div>
     </>
   )
