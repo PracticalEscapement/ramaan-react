@@ -1,10 +1,14 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
-import { signIn } from '../context/RamaanActions'
-
+import CurrentUserContext from '../context/user/currentUserContext'
+import { signIn } from '../context/user/currentUserActions'
+import { getCurrentUser } from '../context/user/currentUserActions'
+ 
 function SignIn() {
+  const { currentUser, dispatch } = useContext(CurrentUserContext)
+
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     email: '',
@@ -21,9 +25,21 @@ function SignIn() {
     }))
   }
 
-  const handleSubmit = (e) => {
-    const response = signIn(e, formData)
-    navigate('/')
+  const onSubmit = (e) => {
+    e.preventDefault()
+    const postSignIn = async () => {
+      const response = await signIn(e, formData)
+      if (response.status === 200) {
+        dispatch({type: 'SIGNED_IN'})
+        getCurrentUserInfo() 
+      } 
+    }
+    const getCurrentUserInfo = async () => {
+      const response = await getCurrentUser()
+      dispatch({type: 'CURRENT_USER', payload: response.data})
+      navigate('/')
+    }
+    postSignIn()
   }
 
   return (
@@ -33,7 +49,7 @@ function SignIn() {
           <p className='pageHeader'>Sign In</p>
         </header>
 
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={onSubmit}>
           <input 
             type='email' 
             className='emailInput' 
