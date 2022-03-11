@@ -1,9 +1,25 @@
-import { createContext, useReducer, useState } from 'react'
-import axios from 'axios'
+import { createContext, useReducer} from 'react'
+import currentUserReducer from './currentUserReducer'
 
 const CurrentUserContext = createContext()
 
 export const CurrentUserProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState({})
+  const initialState = {
+    currentUser: {},
+    isSignedIn: false,
+  }
 
+  const [state, dispatch] = useReducer(currentUserReducer, initialState)
+
+  return (
+    <CurrentUserContext.Provider 
+      value={{
+        ...state, 
+        dispatch,
+      }}>
+        {children}
+    </CurrentUserContext.Provider>
+  )
 }
+
+export default CurrentUserContext
