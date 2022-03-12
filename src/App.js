@@ -19,7 +19,6 @@ function App() {
   useEffect(() => {
     const getCurrentUserInfo = async () => {
       const response = await getCurrentUser()
-      console.log(response)
       if (response.status === 200) {
         dispatch({type: 'CURRENT_USER', payload: response.data})
       } else {
