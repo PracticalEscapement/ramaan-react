@@ -1,7 +1,14 @@
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useContext }  from 'react'
+import CurrentUserContext from '../context/user/currentUserContext'
+import { signOut } from '../context/user/currentUserActions'
 import { Link } from 'react-router-dom'
 
+
 function Navbar() {
+
+  const { isSignedIn, dispatch } = useContext(CurrentUserContext)
+
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -9,6 +16,18 @@ function Navbar() {
     if (route === location.pathname) {
       return true;
     }
+  }
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    const signOutCurrentuser = async () => {
+      const response = await signOut(e)
+      if (response.status === 204) {
+        dispatch({type: 'SIGNED_OUT'})
+        navigate('/about')
+      } 
+    }
+    signOutCurrentuser()
   }
 
   return (
@@ -40,7 +59,14 @@ function Navbar() {
           </li>
         </ul>
       <Link to='/' className='logo'>RAMAAN</Link>
-      <Link to='/sign-in' className='navbarRight'>Sign In</Link>
+      
+      {!isSignedIn &&
+       <Link to='/sign-in' className='navbarRight'>Sign In</Link>
+      }
+      {isSignedIn &&
+        <button className='navbarRight' onClick={handleClick}>Sign Out</button>
+      }
+   
     </header>
   );
 }
