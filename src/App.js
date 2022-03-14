@@ -21,11 +21,11 @@ function App() {
       const response = await getCurrentUser()
       if (response.status === 200) {
         dispatch({type: 'CURRENT_USER', payload: response.data})
-      } else {
-        dispatch({type: 'NO_USER_PRESENT'})
       }
     }
-    getCurrentUserInfo()
+    if (localStorage.getItem("user") === null) {
+      getCurrentUserInfo()
+    }
 
   }, [dispatch])
   

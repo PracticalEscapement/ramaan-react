@@ -18,12 +18,12 @@ function Navbar() {
     }
   }
 
-  const handleClick = (e) => {
-    e.preventDefault()
+  const handleClick = () => {
     const signOutCurrentuser = async () => {
-      const response = await signOut(e)
+      const response = await signOut()
       if (response.status === 204) {
         dispatch({type: 'SIGNED_OUT'})
+        localStorage.setItem("user", null)
         navigate('/about')
       } 
     }

@@ -23,8 +23,7 @@ export const signIn = async (e, formData) => {
   return response
 }
 
-export const signOut = async (e) => {
-  e.preventDefault()
+export const signOut = async () => {
   const response = await ramaanUser.delete(`/users/sign_out`)
   return response
 }

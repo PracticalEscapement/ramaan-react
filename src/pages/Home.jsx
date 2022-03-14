@@ -18,8 +18,6 @@ function Home() {
           Welcome!
         </h1>)
       }
-      
-      <button className='signInButton'>Sign Out</button>
       <Link to='/restaurants'>Restaurants</Link>
     </div>
   )
