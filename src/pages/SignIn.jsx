@@ -7,7 +7,7 @@ import { signIn } from '../context/user/currentUserActions'
 import { getCurrentUser } from '../context/user/currentUserActions'
  
 function SignIn() {
-  const { currentUser, dispatch } = useContext(CurrentUserContext)
+  const { dispatch } = useContext(CurrentUserContext)
 
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
@@ -37,9 +37,12 @@ function SignIn() {
     const getCurrentUserInfo = async () => {
       const response = await getCurrentUser()
       dispatch({type: 'CURRENT_USER', payload: response.data})
+      localStorage.setItem("user", JSON.stringify(response.data))
       navigate('/')
     }
+    
     postSignIn()
+    
   }
 
   return (
