@@ -8,7 +8,6 @@ import About from './pages/About'
 import Restaurants from './components/Restaurants'
 import { RamaanProvider } from './context/RamaanContext'
 import CurrentUserContext from './context/user/currentUserContext'
-import { getCurrentUser } from './context/user/currentUserActions'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 
@@ -17,15 +16,9 @@ function App() {
   const { dispatch } = useContext(CurrentUserContext)
 
   useEffect(() => {
-    const getCurrentUserInfo = async () => {
-      const response = await getCurrentUser()
-      if (response.status === 200) {
-        dispatch({type: 'CURRENT_USER', payload: response.data})
-      }
-    }
-    if (localStorage.getItem("user") === null) {
-      getCurrentUserInfo()
-    }
+        const user = localStorage.getItem("user")
+        
+        dispatch({type: 'CURRENT_USER', payload: JSON.parse(user)})
 
   }, [dispatch])
   
