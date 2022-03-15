@@ -3,6 +3,7 @@ import RamaanContext from '../context/RamaanContext'
 import { getPosts } from '../context/RamaanActions.js'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import PostPreview from '../components/PostPreview'
 
 
 function Posts() {
@@ -18,9 +19,6 @@ function Posts() {
     getPostsArray()
   }, [dispatch])
 
-  //<Link to={`/post/${post.id}`}>{post.title}</Link>
-
-
   return (
     <div className='postsMainContainer'>
         <ul className='postsSidebar'>
@@ -35,14 +33,8 @@ function Posts() {
       <div className='postsFeedContainer'>
         <ul className='postFeed'>
           {posts.map((post) => (
-            <li key={post.id} className='postCard'>
-              <div className='postCardImageContainer'>
-                <img src={post.image_url} alt="Restaurant Image" className='postCardImage' />
-              </div>
-                <Link to={`/post/${post.id}`} className='postCardHeadline'>
-                  {post.title}
-                </Link>
-                <a href='https://www.google.com/' className='postCardFooter' >Find Me On Google</a>
+            <li className='postCard'>
+              <PostPreview key={post.id} post={post} />
             </li>
           ))}
         </ul>

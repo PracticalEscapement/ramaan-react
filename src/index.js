@@ -3,13 +3,16 @@ import ReactDom from 'react-dom'
 import './index.css'
 import App from './App'
 import { CurrentUserProvider } from './context/user/currentUserContext'
+import { ChakraProvider } from '@chakra-ui/react'
 
 
 ReactDom.render(
   <React.StrictMode>
-    <CurrentUserProvider>
-      <App />
-    </CurrentUserProvider>
+    <ChakraProvider>
+      <CurrentUserProvider>
+        <App />
+      </CurrentUserProvider>
+    </ChakraProvider>
   </React.StrictMode>, 
   document.getElementById('root')
 )
