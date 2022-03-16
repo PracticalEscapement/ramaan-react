@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 function Navbar() {
 
-  const { isSignedIn, dispatch } = useContext(CurrentUserContext)
+  const { isSignedIn, currentUser, dispatch } = useContext(CurrentUserContext)
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -58,7 +58,7 @@ function Navbar() {
             </p>
           </li>
         </ul>
-      <Link to='/' className='logo'>RAMAAN</Link>
+      <Link to='/' className='logo'>RAMEN FINDER</Link>
       
       {!isSignedIn &&
        <Link to='/sign-in' className='navbarRight'>Sign In</Link>

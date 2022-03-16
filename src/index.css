@@ -256,6 +256,7 @@ button {
   background-position: 10px 6px;
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
+  border: 2px solid #787878;
 }
 
 .nameInput {

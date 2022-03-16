@@ -36,6 +36,7 @@ function SignIn() {
     }
     const getCurrentUserInfo = async () => {
       const response = await getCurrentUser()
+      console.log(response)
       dispatch({type: 'CURRENT_USER', payload: response.data})
       localStorage.setItem("user", JSON.stringify(response.data))
       navigate('/')
