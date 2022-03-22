@@ -24,7 +24,7 @@ function Posts() {
   }, [dispatch])
 
   return (
-    <Center h='100vh'>
+    <Center>
       <Container maxW='6xl' mt={5}>
         {posts.map((post) => (
          <PostPreview key={post.id} post={post} />
