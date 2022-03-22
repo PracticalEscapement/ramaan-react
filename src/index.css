@@ -34,7 +34,6 @@ button {
 
 .navbar {
   display: grid;
-  margin-bottom: 10px;
   background-color: #990011FF;
   grid-template-rows: 50px;
   grid-template-columns: 1fr 1fr 1fr;
@@ -52,7 +51,6 @@ button {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas:
   "link1 link2 link3 link4";
-  grid-gap: 10;
   align-items: center;
   justify-items: center;
   list-style-type: none;
@@ -60,6 +58,7 @@ button {
 
 .logo {
   text-decoration: none;
+  font-style: italic;
   color: white;
   font-size: 3rem;
   font-weight: 500;
@@ -73,12 +72,13 @@ button {
   cursor: pointer;
   background-color: #990011FF;
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 500;
   list-style-type: none;
   grid-area: nav3;
   align-self: center;
-  justify-self: center;
+  justify-self: right;
+  margin-right: 10px;
   text-decoration: none;
 }
 
@@ -90,7 +90,7 @@ button {
 
 .navLeftHomeLink,
 .navLeftHomeLinkActive {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: whitesmoke;
   grid-area: link1;
   cursor: pointer;
@@ -98,7 +98,7 @@ button {
 
 .navLeftPostsLink,
 .navLeftPostsLinkActive {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: whitesmoke;
   grid-area: link2;
   cursor: pointer;
@@ -106,7 +106,7 @@ button {
 
 .navLeftAboutLink,
 .navLeftAboutLinkActive {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: whitesmoke;
   grid-area: link3;
   cursor: pointer;
@@ -115,20 +115,13 @@ button {
 /* Nav left active/hover */
 
 .navLeftHomeLink:hover,
-.navLeftHomeLinkActive {
-  color: black;
-}
-
+.navLeftHomeLinkActive,
 .navLeftPostsLink:hover,
-.navLeftPostsLinkActive {
-  color: black;
-}
-
+.navLeftPostsLinkActive,
 .navLeftAboutLink:hover,
 .navLeftAboutLinkActive {
   color: black;
 }
-
 
 /* Posts Page */
 

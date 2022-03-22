@@ -7,6 +7,7 @@ export const RamaanProvider = ({ children }) => {
   const initialState = {
     posts: [],
     post: {},
+    restaurants: [],
     loading: false,
   }
 

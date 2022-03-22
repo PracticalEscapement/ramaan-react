@@ -3,8 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
 import CurrentUserContext from '../context/user/currentUserContext'
-import { signIn } from '../context/user/currentUserActions'
-import { getCurrentUser } from '../context/user/currentUserActions'
+import { getCurrentUser, signIn } from '../context/user/currentUserActions'
  
 function SignIn() {
   const { dispatch } = useContext(CurrentUserContext)
@@ -36,7 +35,6 @@ function SignIn() {
     }
     const getCurrentUserInfo = async () => {
       const response = await getCurrentUser()
-      console.log(response)
       dispatch({type: 'CURRENT_USER', payload: response.data})
       localStorage.setItem("user", JSON.stringify(response.data))
       navigate('/')
