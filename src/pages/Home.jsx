@@ -21,7 +21,6 @@ function Home() {
       <div>
         {isSignedIn && (<h1>Welcome Back {first_name}!</h1>)}
         {!isSignedIn && (<h1>Welcome!</h1>)}
-      <Link to='/restaurants'>Restaurants</Link>
     </div>
       <Container maxW={'3xl'}>
         <Stack

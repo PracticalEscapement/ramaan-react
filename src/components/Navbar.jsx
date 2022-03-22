@@ -3,6 +3,8 @@ import { useContext }  from 'react'
 import CurrentUserContext from '../context/user/currentUserContext'
 import { signOut } from '../context/user/currentUserActions'
 import { Link } from 'react-router-dom'
+import noodles from '../assets/noodles.png'
+import { Box, Image, HStack, Heading } from '@chakra-ui/react'
 
 
 function Navbar() {
@@ -24,7 +26,7 @@ function Navbar() {
       if (response.status === 204) {
         dispatch({type: 'SIGNED_OUT'})
         localStorage.setItem("user", null)
-        navigate('/about')
+        navigate('/')
       } 
     }
     signOutCurrentuser()
@@ -49,16 +51,21 @@ function Navbar() {
               Posts
             </p>
           </li>
-          <li className='navLeftAboutLink' onClick={() => navigate('/about')}>
+          <li className='navLeftAboutLink' onClick={() => navigate('/restaurants')}>
           <p className={
-              pathMatchRoute('/about') ? 'navLeftAboutLinkActive' : 'navLeftAboutLink'
+              pathMatchRoute('/restaurants') ? 'navLeftAboutLinkActive' : 'navLeftAboutLink'
               }
             >
-              About
+              Restaurants
             </p>
           </li>
         </ul>
-      <Link to='/' className='logo'>RAMEN FINDER</Link>
+      <Link to='/'>
+        <HStack ml='35px'>
+          <Heading size='xl' color='black'>RAMEN FINDER</Heading>
+          <Image boxSize='40px' objectFit='cover' src={noodles} alt="noodles" />
+        </HStack>
+      </Link>
       
       {!isSignedIn &&
        <Link to='/sign-in' className='navbarRight'>Sign In</Link>

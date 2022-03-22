@@ -12,6 +12,12 @@ const ramaanReducer = (state, action) => {
         post: action.payload,
         loading: false,
       }
+    case 'GET_RESTAURANTS':
+      return {
+        ...state,
+        restaurants: action.payload,
+        loading: false,
+      }
     case 'SET_LOADING':
     return {
       ...state,

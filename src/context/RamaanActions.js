@@ -17,14 +17,7 @@ export const getPost = async (id) => {
   return response.data
 }
 
-export const signIn = async (e, formData) => {
-  e.preventDefault()
-  const formattedData = {
-    api_v1_user: {
-      email: formData.email,
-      password: formData.password,
-    }
-  }
-  const response = await ramaan.post('/users/sign_in.json', formattedData)
-  console.log(`sign_in: ${response.status}`)
+export const getRestaurants = async () => {
+  const response = await ramaan.get(`/restaurants.json`)
+  return response.data.restaurants
 }

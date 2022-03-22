@@ -4,10 +4,14 @@ import { getPosts } from '../context/RamaanActions.js'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import PostPreview from '../components/PostPreview'
+import { Container, Center } from '@chakra-ui/react'
+import chopSticksHands from '../assets/chopSticksHands.png'
+
 
 
 function Posts() {
-  const { posts, loading, dispatch } = useContext(RamaanContext)
+  const { posts, post, loading, dispatch } = useContext(RamaanContext)
+  
 
   useEffect(() => {
     dispatch({type: 'SET_LOADING'})
@@ -20,26 +24,13 @@ function Posts() {
   }, [dispatch])
 
   return (
-    <div className='postsMainContainer'>
-        <ul className='postsSidebar'>
-            {posts.map((post) => (
-              <li key={post.id} className='postsSidebarLink'>
-                <Link to={`/post/${post.id}`} className='postLink'>
-                  {post.title}
-                </Link>
-              </li>
-            ))}
-        </ul>
-      <div className='postsFeedContainer'>
-        <ul className='postFeed'>
-          {posts.map((post) => (
-            <li className='postCard'>
-              <PostPreview key={post.id} post={post} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <Center h='100vh'>
+      <Container maxW='6xl' mt={5}>
+        {posts.map((post) => (
+         <PostPreview key={post.id} post={post} />
+        ))}
+      </Container>
+    </Center>
   )
 }
 

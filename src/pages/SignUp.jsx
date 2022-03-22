@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { signUp } from '../context/user/currentUserActions'
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
   })
-  const { name, email, password } = formData
+  const { firstName, lastName, email, password } = formData
 
   const navigate = useNavigate()
   
@@ -20,6 +23,15 @@ function SignUp() {
     }))
   }
 
+  const onSubmit = (e) => {
+    e.preventDefault()
+    const callSignUp = async () => {
+      const response = await signUp(e, formData)
+      console.log(response)
+    }
+    callSignUp()
+  }
+
   return (
     <>
       <div className='pageContainer'>
@@ -27,17 +39,26 @@ function SignUp() {
           <p className='pageHeader'>Sign In</p>
         </header>
 
-        <form>
+        <form onSubmit={onSubmit}>
         <input 
             type='text' 
             className='nameInput' 
-            placeholder='Name' 
-            id='name' 
-            value={name} 
+            placeholder='First Name' 
+            id='firstName' 
+            value={firstName} 
+            onChange={onChange}
+          /><br/>
+        
+        <input 
+            type='text' 
+            className='nameInput' 
+            placeholder='Last Name' 
+            id='lastName' 
+            value={lastName} 
             onChange={onChange}
           /><br/>
 
-          <input 
+          <input
             type='email' 
             className='emailInput' 
             placeholder='Email' 
@@ -65,9 +86,9 @@ function SignUp() {
         
         <div className='signInBar'>
             <p className='signInText'>
-              Sign In
+              Sign Up
             </p>
-            <button className='signInButton'>
+            <button className='signInButton' type='submit' value='submit'>
               <ArrowRightIcon fill='#ffffff' width='34px' height='34px' />
             </button>
           </div>

@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Posts from './pages/Posts'
 import Post from './pages/Post'
 import About from './pages/About'
-import Restaurants from './components/Restaurants'
+import Restaurants from './pages/Restaurants'
 import { RamaanProvider } from './context/RamaanContext'
 import CurrentUserContext from './context/user/currentUserContext'
 import SignIn from './pages/SignIn'
@@ -17,8 +17,12 @@ function App() {
 
   useEffect(() => {
         const user = localStorage.getItem("user")
+        if (user !== null) {
+          dispatch({type: 'CURRENT_USER', payload: JSON.parse(user)})
+        } else {
+          dispatch({type: 'NO_USER_PRESENT'})
+        }
         
-        dispatch({type: 'CURRENT_USER', payload: JSON.parse(user)})
 
   }, [dispatch])
   
