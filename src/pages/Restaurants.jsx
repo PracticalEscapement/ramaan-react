@@ -1,8 +1,8 @@
 import { useContext, useEffect } from 'react'
 import RamaanContext from '../context/RamaanContext'
 import { getRestaurants } from '../context/RamaanActions'
-import { Box, VStack, StackDivider } from '@chakra-ui/react'
-import titleize from 'titleize'
+import { Box, VStack } from '@chakra-ui/react'
+import RestaurantCard from '../components/RestaurantCard'
 
 function Restaurants() {
   const {restaurants, dispatch} = useContext(RamaanContext)
@@ -25,11 +25,8 @@ function Restaurants() {
         align='stretch'
       >
         {restaurants.map((restaurant) => (
-          <Box maxW='md' borderWidth='1px' borderRadius='lg' p={7}>
-            {titleize(restaurant.name)}
-          </Box>
+          <RestaurantCard name={restaurant.name} />
         ))}
-
       </VStack>
     </>
   )

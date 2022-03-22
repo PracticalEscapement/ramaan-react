@@ -61,7 +61,7 @@ function Navbar() {
           </li>
         </ul>
       <Link to='/'>
-        <HStack ml='35px'>
+        <HStack justify='center'>
           <Heading size='xl' color='black'>RAMEN FINDER</Heading>
           <Image boxSize='40px' objectFit='cover' src={noodles} alt="noodles" />
         </HStack>
