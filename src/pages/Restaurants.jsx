@@ -25,7 +25,7 @@ function Restaurants() {
         align='stretch'
       >
         {restaurants.map((restaurant) => (
-          <RestaurantCard name={restaurant.name} />
+          <RestaurantCard key={restaurant.id} name={restaurant.name} />
         ))}
       </VStack>
     </>
