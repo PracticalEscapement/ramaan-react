@@ -21,3 +21,15 @@ export const getRestaurants = async () => {
   const response = await ramaan.get(`/restaurants.json`)
   return response.data.restaurants
 }
+
+export const addComment = async (e, post_id, commentData) => {
+  e.preventDefault()
+  const formattedData = {
+    comment: {
+      text: commentData.text, 
+      likes: commentData.likes,
+    }
+  }
+  const response = await ramaan.post(`posts/${post_id}/comments.json`, formattedData)
+  return response
+}

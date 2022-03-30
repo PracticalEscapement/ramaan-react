@@ -9,6 +9,7 @@ import {
   Text,
   Button,
   Stack,
+  Image
 } from '@chakra-ui/react';
 
 
@@ -29,8 +30,14 @@ function Home() {
           spacing={{ base: 8, md: 14 }}
           py={{ base: 20, md: 50 }}>
           <Center>
-            <Box maxW='xl' boxShadow='dark-lg' p='1' rounded='md' bg='white'>
-              <img src={ichirakuRamen} alt='Loading...'/>
+            <Box maxW='2xl' boxShadow='dark-lg' p='1' rounded='md' bg='white'>
+              <Image
+                height={400}
+                width={700}
+                objectFit={'cover'} 
+                src={ichirakuRamen}
+                alt='loading'
+              />
             </Box>
           </Center>
           <Text color={'gray.600'} fontSize='xl'>
