@@ -23,7 +23,6 @@ function AddCommentForm({ post_id, addNewComment }) {
     callAddComment()
   }
 
-
   return (
     <div className='commentFormContainer'>
       <form onSubmit={onSubmit}>
