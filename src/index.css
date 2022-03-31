@@ -317,3 +317,50 @@ button {
   text-align: center;
   margin-bottom: 3rem;
 }
+
+/* Post page add comment button and comment form */
+.addCommentsContainer {
+  padding: 50px;
+}
+
+.addCommentButton {
+  background-color: #990011FF;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  opacity: 1;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+.addCommentButton:hover {opacity: 0.6}
+
+.commentFormContainer {
+  width: 500px;
+  margin: auto;
+  padding: 10px;
+}
+
+.commentText {
+  padding: 5px;
+  width: 100%;
+  box-shadow: 0 8px 7px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+  float: left;
+  margin: 5px;
+  border: 1px solid;
+}
+
+.commentSubmitButton {
+  background-color: #990011FF;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-left: 4px;
+  
+}
