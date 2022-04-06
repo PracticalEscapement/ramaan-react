@@ -16,7 +16,7 @@ function AddCommentForm({ post_id, addNewComment }) {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    const callAddComment = async() => {
+    const callAddComment = async () => {
       const response = await addComment(e, post_id, commentData)
       addNewComment(response.data)
     }
