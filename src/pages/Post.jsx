@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom'
 import { useContext, useEffect, useState, useCallback } from 'react'
 import RamaanContext from '../context/RamaanContext'
-import CurrentUserContext from '../context/user/currentUserContext'
 import { getPost } from '../context/RamaanActions.js'
 import Spinner from '../components/assests/Spinner'
 import AddCommentForm from '../components/AddCommentForm'
@@ -17,8 +16,8 @@ import {
 
 function Post() {
   const { post, loading, dispatch} = useContext(RamaanContext)
-  const { currentUser } = useContext(CurrentUserContext)
   const { title, review, image_url } = post
+  const params = useParams()
 
   const [comments, setComments] = useState([])
   const [buttonClicked, setButtonClicked] = useState(false)
@@ -31,8 +30,6 @@ function Post() {
     setComments([...comments, newComment])
     setButtonClicked(false)
   }, [comments])
-
-  const params = useParams()
 
   useEffect(() => {
     dispatch({type: 'SET_LOADING'})

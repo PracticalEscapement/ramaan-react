@@ -362,5 +362,9 @@ button {
   font-size: 12px;
   border-radius: 5px;
   margin-left: 4px;
-  
+}
+
+.deleteCommentButton {
+  cursor: pointer;
+  opacity: .8;
 }
