@@ -1,17 +1,12 @@
 import { useContext, useEffect } from 'react'
-import RamaanContext from '../context/RamaanContext'
-import { getPosts } from '../context/RamaanActions.js'
-import { Link } from 'react-router-dom'
+import RamaanContext from '../context/ramaan/RamaanContext'
+import { getPosts } from '../context/ramaan/RamaanActions.js'
 import PropTypes from 'prop-types'
 import PostPreview from '../components/PostPreview'
 import { Container, Center } from '@chakra-ui/react'
-import chopSticksHands from '../assets/chopSticksHands.png'
-
-
 
 function Posts() {
   const { posts, post, loading, dispatch } = useContext(RamaanContext)
-  
 
   useEffect(() => {
     dispatch({type: 'SET_LOADING'})

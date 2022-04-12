@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import CommentObject from '../components/CommentObject'
 import { 
   VStack, 
@@ -7,6 +8,8 @@ import {
 } from '@chakra-ui/react'
 
 function CommentsList({ comments }) {
+
+  const [showModal, setShowModal] = useState(false)
 
   return (
     <VStack align={'right'}>

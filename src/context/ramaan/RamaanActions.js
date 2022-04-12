@@ -35,6 +35,6 @@ export const addComment = async (e, post_id, commentData) => {
 }
 
 export const deleteComment = async (post_id, comment_id) => {
-  const response = await ramaan.delete(`/posts/${post_id}/comments/${comment_id}`)
+  const response = await ramaan.delete(`/posts/${post_id}/comments/${comment_id}.json`)
   return response
 }

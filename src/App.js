@@ -6,7 +6,7 @@ import Posts from './pages/Posts'
 import Post from './pages/Post'
 import About from './pages/About'
 import Restaurants from './pages/Restaurants'
-import { RamaanProvider } from './context/RamaanContext'
+import { RamaanProvider } from './context/ramaan/RamaanContext'
 import CurrentUserContext from './context/user/currentUserContext'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
@@ -43,6 +43,7 @@ function App() {
           </div>
         </Router>
       </RamaanProvider>
+
   )
 }
 

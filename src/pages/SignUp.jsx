@@ -27,7 +27,7 @@ function SignUp() {
     e.preventDefault()
     const callSignUp = async () => {
       const response = await signUp(e, formData)
-      console.log(response)
+      // TODO onSignin banner
     }
     callSignUp()
   }

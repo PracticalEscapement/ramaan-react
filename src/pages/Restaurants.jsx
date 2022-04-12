@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react'
-import RamaanContext from '../context/RamaanContext'
-import { getRestaurants } from '../context/RamaanActions'
+import RamaanContext from '../context/ramaan/RamaanContext'
+import { getRestaurants } from '../context/ramaan/RamaanActions'
 import { Box, VStack } from '@chakra-ui/react'
 import RestaurantCard from '../components/RestaurantCard'
 

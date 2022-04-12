@@ -1,6 +1,6 @@
-import { useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import CurrentUserContext from '../context/user/currentUserContext'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ichirakuRamen from '../assets/ichirakuRamen.gif'
 import {
   Box,
@@ -16,6 +16,8 @@ import {
 function Home() {
   const { currentUser, isSignedIn } = useContext(CurrentUserContext)
   const {email, first_name, last_name, is_admin} = currentUser
+
+  const navigate = useNavigate()
 
   return (
     <>
@@ -37,6 +39,7 @@ function Home() {
                 objectFit={'cover'} 
                 src={ichirakuRamen}
                 alt='loading'
+                rounded={'md'}
               />
             </Box>
           </Center>
@@ -52,6 +55,7 @@ function Home() {
             alignSelf={'center'}
             position={'relative'}>
             <Button
+              onClick={() => {navigate('/about')}}
               colorScheme={'green'}
               bg={'red.600'}
               rounded={'full'}
@@ -59,10 +63,7 @@ function Home() {
               _hover={{
                 bg: 'blue.900',
               }}>
-              Get Started
-            </Button>
-            <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-              Learn more
+              About Us
             </Button>
           </Stack>
         </Stack>
