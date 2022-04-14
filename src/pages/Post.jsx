@@ -4,7 +4,7 @@ import RamaanContext from '../context/ramaan/RamaanContext'
 import { getPost } from '../context/ramaan/RamaanActions'
 import Spinner from '../components/assests/Spinner'
 import AddCommentForm from '../components/addCommentForm/AddCommentForm'
-import CommentsList from '../components/CommentsList'
+import CommentsList from '../components/comments/CommentsList'
 import { 
   VStack, 
   Box, 
@@ -25,6 +25,12 @@ function Post() {
   const addNewComment = useCallback((newComment) => {
     setComments([...comments, newComment])
     setButtonClicked(false)
+  }, [comments])
+
+  const removeComment = useCallback((removedComment) => {
+    const updatedComments = comments.filter(comment => comment.id !== removedComment.id)
+    console.log(updatedComments)
+    setComments([updatedComments])
   }, [comments])
 
   useEffect(() => {
@@ -80,7 +86,8 @@ function Post() {
           }
         </div>
         
-        <CommentsList comments={comments} />
+        <CommentsList comments={comments} onRemove={removeComment} />
+        
     
       </VStack>
     

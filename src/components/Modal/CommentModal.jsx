@@ -1,6 +1,13 @@
 import './Modal.css'
+import { useState } from 'react'
 
-function CommentModal({ show, onClose }) {
+function CommentModal({ show, onClose, onConfirm }) {
+  const [isDisabled, setIsDisabled] = useState(false)
+
+  const handleClick = () => {
+    onConfirm()
+    setIsDisabled(true)
+  }
  
   return (
     <div className={`modal ${show ? 'show' : ''}`} onClick={onClose}>
@@ -13,7 +20,7 @@ function CommentModal({ show, onClose }) {
         </div>
         <div className='model-footer'>
           <button className='button' onClick={onClose}>Cancel</button>
-          <button className='button'>Confirm</button>
+          <button className='button' disabled={isDisabled} onClick={handleClick}>Confirm</button>
         </div>
       </div>
     </div>
