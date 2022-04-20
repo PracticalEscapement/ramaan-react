@@ -5,8 +5,9 @@ function CommentModal({ show, onClose, onConfirm }) {
   const [isDisabled, setIsDisabled] = useState(false)
 
   const handleClick = () => {
-    onConfirm()
     setIsDisabled(true)
+    onConfirm()
+    console.log('commentModal')
   }
  
   return (
@@ -20,7 +21,7 @@ function CommentModal({ show, onClose, onConfirm }) {
         </div>
         <div className='model-footer'>
           <button className='button' onClick={onClose}>Cancel</button>
-          <button className='button' disabled={isDisabled} onClick={handleClick}>Confirm</button>
+          <button className='button' type='submit' disabled={isDisabled} onClick={handleClick}>Confirm</button>
         </div>
       </div>
     </div>

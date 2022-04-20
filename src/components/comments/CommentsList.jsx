@@ -13,34 +13,29 @@ import {
 function CommentsList({ comments, onRemove }) {
   const params = useParams()
   const [showModal, setShowModal] = useState(false)
-  const [comment, setComment] = useState('')
-  const [confirmDelete, setConfirmDelete] = useState(false)
+  const [rComment, setRComment] = useState('')
 
   const initDeleteComment = (comment) => {
    setShowModal(true)
-   setComment(comment)
+   setRComment(comment)
   }
 
   const delComment = () => {
     const callDeleteComment = async () => {
-      const response = await deleteComment(params.id, comment.id)
+      const response = await deleteComment(params.id, rComment.id)
       // TODO Use response to render success message
       if (response.status <= 204) {
         handleConfirm()
+        console.log('deleted')
       }
     }
     callDeleteComment()
   }
 
-  if (confirmDelete) {
-    delComment(comment)
-  }
-
   const handleConfirm = () => {
-    onRemove(comment)
-    setConfirmDelete(false)
+    onRemove(rComment)
     setShowModal(false)
-    setComment('')
+    setRComment('')
   }
 
 
@@ -65,7 +60,7 @@ function CommentsList({ comments, onRemove }) {
       <CommentModal
         onClose={() => setShowModal(false)}
         show={showModal}
-        onConfirm={() => setConfirmDelete(true)}
+        onConfirm={delComment}
       />
     </Box>
     </VStack>

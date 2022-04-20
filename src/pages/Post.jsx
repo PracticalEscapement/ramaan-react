@@ -30,7 +30,7 @@ function Post() {
   const removeComment = useCallback((removedComment) => {
     const updatedComments = comments.filter(comment => comment.id !== removedComment.id)
     console.log(updatedComments)
-    setComments([updatedComments])
+    setComments(updatedComments)
   }, [comments])
 
   useEffect(() => {

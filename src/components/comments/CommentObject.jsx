@@ -15,8 +15,8 @@ function CommentObject({ comment, onDelete }) {
   const [isDisabled, setIsDisabled] = useState(false)
 
   const handleClick = () => {
-    onDelete(comment)
     setIsDisabled(true)
+    onDelete(comment)
   }
 
   return (
@@ -27,11 +27,11 @@ function CommentObject({ comment, onDelete }) {
             <Text ml={'5'}>{comment.user}</Text>
             <Text ml={'5'}>{comment.text}</Text>
           </Box>
+          
           {comment.user_id === currentUser.id && 
-          <button className='deleteCommentButton' disabled={isDisabled} onClick={handleClick}>
-            <AiFillDelete />
-          </button>
-            
+            <button className='deleteCommentButton' disabled={isDisabled} onClick={handleClick}>
+              <AiFillDelete />
+            </button>  
           }
       </Flex>
       </>
