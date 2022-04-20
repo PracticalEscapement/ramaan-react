@@ -1,0 +1,45 @@
+.addCommentsContainer {
+  padding: 50px;
+}
+
+.commentFormContainer {
+  width: 500px;
+  margin: auto;
+  padding: 10px;
+  position: relative;
+}
+
+.commentText {
+  padding: 5px;
+  width: 100%;
+  box-shadow: 0 8px 7px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+  float: left;
+  margin: 5px;
+  border: 1px solid;
+}
+
+.commentSubmitButton {
+  background-color: #990011FF;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-left: 4px;
+}
+
+.commentSubmitButton:disabled {
+  background-color: gray;
+}
+
+.commentCancelButton {
+  background-color: #990011FF;
+  border: none;
+  color: white;
+  padding: 3px 9px;
+  font-size: 15px;
+  border-radius: 50%;
+  position: absolute;
+  left: 95%;
+  bottom: 75%;
+}

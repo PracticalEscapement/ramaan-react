@@ -1,10 +1,10 @@
 import { useParams } from 'react-router-dom'
 import { useContext, useEffect, useState, useCallback } from 'react'
-import RamaanContext from '../context/RamaanContext'
-import { getPost } from '../context/RamaanActions.js'
+import RamaanContext from '../context/ramaan/RamaanContext'
+import { getPost } from '../context/ramaan/RamaanActions'
 import Spinner from '../components/assests/Spinner'
-import AddCommentForm from '../components/AddCommentForm'
-import CommentsList from '../components/CommentsList'
+import AddCommentForm from '../components/addCommentForm/AddCommentForm'
+import CommentsList from '../components/comments/CommentsList'
 import { 
   VStack, 
   Box, 
@@ -21,14 +21,16 @@ function Post() {
 
   const [comments, setComments] = useState([])
   const [buttonClicked, setButtonClicked] = useState(false)
-
-  const handleClick = () => {
-    setButtonClicked(true)
-  }
   
   const addNewComment = useCallback((newComment) => {
     setComments([...comments, newComment])
     setButtonClicked(false)
+  }, [comments])
+
+  const removeComment = useCallback((removedComment) => {
+    const updatedComments = comments.filter(comment => comment.id !== removedComment.id)
+    console.log(updatedComments)
+    setComments(updatedComments)
   }, [comments])
 
   useEffect(() => {
@@ -64,19 +66,27 @@ function Post() {
           shadow={'2xl'}
         />
         <Box w={'900px'}>
-          <Text mt={5} fontSize={'lg'}>
+          <Text fontSize={'lg'}>
             {review}
           </Text>
         </Box>
 
         <div className='addCommentsContainer'>
           {buttonClicked
-            ? <AddCommentForm post_id={params.id} addNewComment={addNewComment} />
-            : <button className='addCommentButton' onClick={handleClick}>Add a Comment</button>
+            ? <AddCommentForm 
+                post_id={params.id} 
+                addNewComment={addNewComment}
+                unclickButton={() => setButtonClicked(false)}
+              />
+            : <button 
+                className='addCommentButton' 
+                onClick={() => setButtonClicked(true)}>
+                  Add a Comment
+              </button>
           }
         </div>
         
-        <CommentsList comments={comments} />
+        <CommentsList comments={comments} onRemove={removeComment} />
         
     
       </VStack>
