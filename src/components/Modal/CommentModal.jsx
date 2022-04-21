@@ -1,13 +1,16 @@
 import './Modal.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 function CommentModal({ show, onClose, onConfirm }) {
   const [isDisabled, setIsDisabled] = useState(false)
 
+  useEffect(() => {
+    setIsDisabled(false)
+  }, [show])
+
   const handleClick = () => {
     setIsDisabled(true)
     onConfirm()
-    console.log('commentModal')
   }
  
   return (

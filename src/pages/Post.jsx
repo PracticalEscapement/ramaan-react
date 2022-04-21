@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useContext, useEffect, useState, useCallback } from 'react'
 import RamaanContext from '../context/ramaan/RamaanContext'
-import { getPost } from '../context/ramaan/RamaanActions'
+import { getPost, getComments } from '../context/ramaan/RamaanActions'
 import Spinner from '../components/assests/Spinner'
 import AddCommentForm from '../components/addCommentForm/AddCommentForm'
 import CommentsList from '../components/comments/CommentsList'
@@ -20,17 +20,19 @@ function Post() {
   const params = useParams()
 
   const [comments, setComments] = useState([])
+  const [commentsChanged, setCommentsChanged] = useState(false)
   const [buttonClicked, setButtonClicked] = useState(false)
   
   const addNewComment = useCallback((newComment) => {
     setComments([...comments, newComment])
     setButtonClicked(false)
+    setCommentsChanged(true)
   }, [comments])
 
   const removeComment = useCallback((removedComment) => {
     const updatedComments = comments.filter(comment => comment.id !== removedComment.id)
-    console.log(updatedComments)
     setComments(updatedComments)
+    setCommentsChanged(true)
   }, [comments])
 
   useEffect(() => {
@@ -38,11 +40,18 @@ function Post() {
     const getPostObject = async() => {
       const postObject = await getPost(params.id)
       dispatch({type: 'GET_POST', payload: postObject})
-      setComments(postObject.comments)
     }
-
     getPostObject()
   }, [dispatch, params.id])
+
+  useEffect(() => {
+    const getCommentsArray = async() => {
+      const commentsArray = await getComments(params.id)
+      setComments(commentsArray)
+      setCommentsChanged(false)
+    }
+    getCommentsArray()
+  }, [commentsChanged])
 
   const IMAGE = 'https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80';
   
