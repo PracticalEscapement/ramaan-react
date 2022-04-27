@@ -1,8 +1,12 @@
 import style from './addCommentForm.module.css'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { addComment } from '../../context/ramaan/RamaanActions'
+import CurrentUserContext from '../../context/user/currentUserContext'
 
 function AddCommentForm({ post_id, addNewComment, unclickButton }) {
+  const navigate = useNavigate()
+  const { currentUser } = useContext(CurrentUserContext)
 
   const [submitDisabled, setSubmitDisabled] = useState(true)
   const [commentData, setCommentData] = useState({
@@ -23,12 +27,21 @@ function AddCommentForm({ post_id, addNewComment, unclickButton }) {
     })
   }
 
+  const isEmpty = (obj) => {
+    return JSON.stringify(obj) === '{}';
+  }
+
   // TODO Add a banner telling the user a their comment was created
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (isEmpty(currentUser)) {
+      navigate('/sign-in')
+    }
     const callAddComment = async () => {
       const response = await addComment(e, post_id, commentData)
-      addNewComment(response.data)
+      if (response.status === 200) {
+        addNewComment(response.data)
+      }
     }
     callAddComment()
   }
