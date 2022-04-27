@@ -12,12 +12,19 @@ import {
 
 function CommentsList({ comments, onRemove }) {
   const params = useParams()
+
   const [showModal, setShowModal] = useState(false)
+  // rComment represents comment to be removed.
   const [rComment, setRComment] = useState('')
 
-  const initDeleteComment = (comment) => {
+  const startDeleteComment = (comment) => {
    setShowModal(true)
    setRComment(comment)
+  }
+  const handleConfirm = () => {
+    onRemove(rComment)
+    setShowModal(false)
+    setRComment('')
   }
 
   const delComment = () => {
@@ -26,18 +33,10 @@ function CommentsList({ comments, onRemove }) {
       // TODO Use response to render success message
       if (response.status <= 204) {
         handleConfirm()
-        console.log('deleted')
       }
     }
     callDeleteComment()
   }
-
-  const handleConfirm = () => {
-    onRemove(rComment)
-    setShowModal(false)
-    setRComment('')
-  }
-
 
   if (comments.length === 0) {
     return (
@@ -55,7 +54,11 @@ function CommentsList({ comments, onRemove }) {
 
     <Box w={'800px'}>
       {comments.map((comment) => (
-        <CommentObject key={comment.id} comment={comment} onDelete={initDeleteComment} />
+        <CommentObject
+          key={comment.id}
+          comment={comment}
+          onDelete={startDeleteComment}
+        />
       ))}
       <CommentModal
         onClose={() => setShowModal(false)}

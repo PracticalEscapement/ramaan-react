@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Posts from './pages/Posts'
 import Post from './pages/Post'
-import About from './pages/About'
+import AboutPage from './pages/AboutPage'
 import Restaurants from './pages/Restaurants'
 import { RamaanProvider } from './context/ramaan/RamaanContext'
 import CurrentUserContext from './context/user/currentUserContext'
@@ -36,7 +36,7 @@ function App() {
                 <Route path='/posts' element={<Posts />} />
                 <Route path='/restaurants' element={<Restaurants />} />
                 <Route path='/post/:id' element={<Post />} />
-                <Route path='/about' element={<About />} />
+                <Route path='/about' element={<AboutPage />} />
                 <Route path='/sign-in' element={<SignIn />} />
                 <Route path='/sign-up' element={<SignUp />} />
               </Routes>

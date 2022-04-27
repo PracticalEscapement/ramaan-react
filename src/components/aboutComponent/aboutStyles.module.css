@@ -1,0 +1,23 @@
+
+.about {
+  display: grid;
+  place-items: center;
+  margin-top: 100px;
+}
+
+.aboutCard {
+  background-color: #ffe9ec;
+  border-radius: 5px;
+  box-shadow: 0 8px 7px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.19);
+  width: 750px;
+  padding: 30px;
+}
+
+.text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+}
+
+.link {
+  color: blue
+}

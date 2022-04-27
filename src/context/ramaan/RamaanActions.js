@@ -22,6 +22,11 @@ export const getRestaurants = async () => {
   return response.data.restaurants
 }
 
+export const getComments = async (post_id) => {
+  const response = await ramaan.get(`/posts/${post_id}/comments.json`)
+  return response.data.comments
+}
+
 export const addComment = async (e, post_id, commentData) => {
   e.preventDefault()
   const formattedData = {
@@ -36,6 +41,5 @@ export const addComment = async (e, post_id, commentData) => {
 
 export const deleteComment = async (post_id, comment_id) => {
   const response = await ramaan.delete(`/posts/${post_id}/comments/${comment_id}.json`)
-  console.log(response)
   return response
 }
