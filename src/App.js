@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { useEffect, useContext } from 'react'
+import { useEffect, useContext, useState } from 'react'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Posts from './pages/Posts'
@@ -12,17 +12,16 @@ import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 
 function App() {
-
   const { dispatch } = useContext(CurrentUserContext)
-
+  const [user, setUser] = useState(null)
+ 
   useEffect(() => {
-        const user = localStorage.getItem("user")
-        if (user !== null) {
-          dispatch({type: 'CURRENT_USER', payload: JSON.parse(user)})
-        } else {
-          dispatch({type: 'NO_USER_PRESENT'})
-        }
-        
+    setUser(localStorage.getItem("user"))
+    if (user !== null) {
+      dispatch({type: 'CURRENT_USER', payload: JSON.parse(user)})
+    } else {
+      dispatch({type: 'NO_USER_PRESENT'})
+    }
 
   }, [dispatch])
   
