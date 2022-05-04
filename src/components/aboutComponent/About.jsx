@@ -1,6 +1,10 @@
 import styles from './aboutStyles.module.css'
+import { useContext } from 'react'
+import CurrentUserContext from '../../context/user/currentUserContext.js'
 
 function About() {
+  const { currentUser } = useContext(CurrentUserContext)
+
   return (
     <>
       <div className={styles.about}>
@@ -15,6 +19,13 @@ function About() {
           </p>
         </div>
       </div>
+
+      <div className={styles.about}>
+        <div className={styles.aboutCard}>
+          <img src={currentUser.avatar}/>
+        </div>
+      </div>
+
     </>
   )
 }

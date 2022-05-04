@@ -8,7 +8,7 @@ const RAMAAN_URL = process.env.REACT_APP_RAMAAN_URL
 
 export const getCurrentUser = async () => {
   const currentUser = await ramaanUser.get('/current_user.json')
-    return currentUser
+  return currentUser
 }
 
 export const signUp = async (e, formData) => {

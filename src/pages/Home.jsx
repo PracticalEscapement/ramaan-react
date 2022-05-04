@@ -15,15 +15,15 @@ import {
 
 function Home() {
   const { currentUser, isSignedIn } = useContext(CurrentUserContext)
-  const {email, first_name, last_name, is_admin} = currentUser
+  //const {email, first_name, last_name, is_admin} = currentUser
 
   const navigate = useNavigate()
 
   return (
     <>
       <div>
-        {isSignedIn && (<h1>Welcome Back {first_name}!</h1>)}
-        {!isSignedIn && (<h1>Welcome!</h1>)}
+        {isSignedIn && (<h1 className='welcomeUser'>Welcome Back {currentUser.first_name}!</h1>)}
+        {!isSignedIn && (<h1 className='welcomeUser'>Welcome!</h1>)}
     </div>
       <Container maxW={'3xl'}>
         <Stack
@@ -45,7 +45,7 @@ function Home() {
           </Center>
           <Text color={'gray.600'} fontSize='xl'>
             Ever finished an episode of Naruto and craved a piping hot bowl of ramen? We've been there,
-             so Ramen Finder was created to help satisfy those ramen cravings.
+             so Ramen Reviews was created to help satisfy those ramen cravings.
               We'll help you find the best ramen restaurants in New York.
           </Text>
           <Stack
