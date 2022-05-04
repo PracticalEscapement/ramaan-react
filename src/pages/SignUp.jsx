@@ -30,6 +30,7 @@ function SignUp() {
       // TODO onSignin banner
     }
     callSignUp()
+    navigate('/')
   }
 
   return (

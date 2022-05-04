@@ -350,3 +350,8 @@ html::-webkit-scrollbar {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
+
+.welcomeUser {
+  font-size: x-large;
+  font-weight: 500;
+}

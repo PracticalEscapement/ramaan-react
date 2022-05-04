@@ -10,19 +10,18 @@ import { RamaanProvider } from './context/ramaan/RamaanContext'
 import CurrentUserContext from './context/user/currentUserContext'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import { isEmpty } from './helperMethods/Helpers'
 
 function App() {
-  const { dispatch } = useContext(CurrentUserContext)
-  const [user, setUser] = useState(null)
+  const { dispatch, currentUser } = useContext(CurrentUserContext)
  
   useEffect(() => {
-    setUser(localStorage.getItem("user"))
+    const user = localStorage.getItem("user")
     if (user !== null) {
       dispatch({type: 'CURRENT_USER', payload: JSON.parse(user)})
     } else {
       dispatch({type: 'NO_USER_PRESENT'})
     }
-
   }, [dispatch])
   
   return (
