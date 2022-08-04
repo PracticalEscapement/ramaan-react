@@ -22,9 +22,9 @@ function Home() {
   return (
     <>
       <div>
-        {isSignedIn && (<h1 className='welcomeUser'>Welcome Back {currentUser.first_name}!</h1>)}
+        {isSignedIn && (<h1 className='welcomeUser'>Welcome Back!</h1>)}
         {!isSignedIn && (<h1 className='welcomeUser'>Welcome!</h1>)}
-    </div>
+      </div>
       <Container maxW={'3xl'}>
         <Stack
           as={Box}
