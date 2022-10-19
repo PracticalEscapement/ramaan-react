@@ -14,17 +14,13 @@ import {
 
 
 function Home() {
-  const { currentUser, isSignedIn } = useContext(CurrentUserContext)
+  const { currentUser } = useContext(CurrentUserContext)
   //const {email, first_name, last_name, is_admin} = currentUser
 
   const navigate = useNavigate()
 
   return (
     <>
-      <div>
-        {isSignedIn && (<h1 className='welcomeUser'>Welcome Back!</h1>)}
-        {!isSignedIn && (<h1 className='welcomeUser'>Welcome!</h1>)}
-      </div>
       <Container maxW={'3xl'}>
         <Stack
           as={Box}

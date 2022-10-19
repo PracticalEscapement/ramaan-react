@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const RAMAAN_URL = process.env.REACT_APP_RAMAAN_URL
+const RAMAAN_URL = process.env.REACT_APP_API_URL
   const ramaanUser = axios.create({
     withCredentials: true,
     baseURL: RAMAAN_URL,

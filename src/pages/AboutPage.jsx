@@ -4,7 +4,6 @@ function AboutPage() {
 
   return (
     <>
-      <About />
     </>
   )
 }

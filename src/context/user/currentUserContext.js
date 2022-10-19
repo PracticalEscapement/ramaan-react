@@ -6,7 +6,6 @@ const CurrentUserContext = createContext()
 export const CurrentUserProvider = ({ children }) => {
   const initialState = {
     currentUser: {},
-    isSignedIn: false,
   }
 
   const [state, dispatch] = useReducer(currentUserReducer, initialState)
