@@ -9,7 +9,7 @@ import { Box, Image, HStack, Heading } from '@chakra-ui/react'
 
 function Navbar() {
 
-  const { isSignedIn, currentUser, dispatch } = useContext(CurrentUserContext)
+  const { currentUser, dispatch } = useContext(CurrentUserContext)
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -67,12 +67,9 @@ function Navbar() {
         </HStack>
       </Link>
       
-      {!isSignedIn &&
-       <Link to='/sign-in' className='navbarRight'>Sign In</Link>
-      }
-      {isSignedIn &&
-        <button className='navbarRight' onClick={handleClick}>Sign Out</button>
-      }
+      <Link to='/sign-in' className='navbarRight'>Sign In</Link>
+      <button className='navbarRight' onClick={handleClick}>Sign Out</button>
+
    
     </header>
   );

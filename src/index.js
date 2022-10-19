@@ -6,6 +6,7 @@ import { CurrentUserProvider } from './context/user/currentUserContext'
 import { ChakraProvider } from '@chakra-ui/react'
 
 
+
 ReactDom.render(
   <React.StrictMode>
     <ChakraProvider>
